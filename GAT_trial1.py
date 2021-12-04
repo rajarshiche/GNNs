@@ -205,13 +205,9 @@ class Meter(object):
         #print('y_true', y_true.shape) 
         #print(y_true) 
         num_correct = np.where(predictions==y_true)[0] 
-        #print('num_correct', len(num_correct)/(783*12)) 
         true_task1 = y_true[:, 0] 
         pred_task1 = predictions[:, 0] 
-        #print('task1', len(true_task1)) 
-        #print(true_task1) 
-        #print('task1', len(pred_task1)) 
-        #print(pred_task1) 
+
 
         # Creating the histogram for plotting the # of tasks correctly 
         # predicted for each molecule 
@@ -318,8 +314,6 @@ def run_a_train_epoch(args, epoch, model, data_loader, loss_criterion, optimizer
         # print("Input batch_data bg size:{}".format( (batch_data[1])) )
         # print("Input batch_data label size:{}".format(batch_data[2].shape) )
         # print("Input batch_data mask size:{}".format(batch_data[3].shape) )
-        # batch_data_tuple_size = [len(a) for a in batch_data]
-        # print("batch_data tuple sizes for smiles, bg, labels, masks",batch_data_tuple_size)
         
         
         bg = dgl.add_self_loop(bg)  ## Added to ward off self-loop problem
